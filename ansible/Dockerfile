@@ -65,12 +65,9 @@ RUN dnf clean all && \
 	&& \ 
 	dnf clean all
 
-# getcap  /usr/bin/ping
-# /usr/bin/ping = cap_net_admin,cap_net_raw+ep
 RUN setcap cap_net_raw,cap_net_admin+p /usr/bin/ping
 RUN localedef --quiet -c -i en_US -f UTF-8 en_US.UTF-8 
 RUN /usr/bin/sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/' /etc/sudoers 
-#RUN mkdir /etc/ansible/ 
 RUN /usr/bin/echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 COPY hosts.ansible /etc/ansible/hosts
 VOLUME /sys/fs/cgroup /run /tmp 
@@ -80,13 +77,8 @@ RUN ssh-keygen -q -t dsa -N '' -f /etc/ssh/ssh_host_dsa_key && \
 	cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys && \ 
 	for key in /etc/ssh/ssh_host_*_key.pub; do echo "localhost $(cat ${key})" >> /root/.ssh/known_hosts; done 
 RUN pip install coverage junit-xml 
-#RUN pip install ansible
-#RUN pip install ansible==2.7.8
-#RUN git clone https://github.com/networktocode/ntc-ansible --recursive
 RUN git clone https://github.com/networktocode/ntc-ansible --recursive
 RUN pip install ntc-ansible
-RUN /usr/bin/sed -i -e 's/except Exception, e:/except Exception as e:/' /ntc-ansible/filter_plugins/split.py
-#RUN dnf reinstall python3-pip
 ENV container=docker 
 CMD ["/usr/sbin/init"]
 

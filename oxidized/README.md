@@ -4,7 +4,7 @@
 
 `git clone https://github.com/ytti/oxidized.git`
 
-`docker build -t oxidized/oxidized:latest oxidized/``
+`docker build -t oxidized/oxidized:latest oxidized/`
 
 `mkdir etc/oxidized`
 

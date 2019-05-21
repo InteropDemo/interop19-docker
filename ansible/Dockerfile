@@ -69,8 +69,6 @@ RUN setcap cap_net_raw,cap_net_admin+p /usr/bin/ping
 RUN localedef --quiet -c -i en_US -f UTF-8 en_US.UTF-8 
 RUN /usr/bin/sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/' /etc/sudoers 
 RUN /usr/bin/echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
-COPY hosts.ansible /etc/ansible/hosts
-VOLUME /sys/fs/cgroup /run /tmp 
 RUN ssh-keygen -q -t dsa -N '' -f /etc/ssh/ssh_host_dsa_key && \ 
 	ssh-keygen -q -t rsa -N '' -f /etc/ssh/ssh_host_rsa_key && \ 
 	ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa && \ 
@@ -81,4 +79,4 @@ RUN git clone https://github.com/networktocode/ntc-ansible --recursive
 RUN pip install ntc-ansible
 ENV container=docker 
 CMD ["/usr/sbin/init"]
-
+WORKDIR /ntc-ansible

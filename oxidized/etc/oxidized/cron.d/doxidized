@@ -1,0 +1,2 @@
+# m h dom mon dow user  command                                                 
+#*/5 * * * *	root	$(/srv/docker/oxidized/bin/oxidized_cron_git_push.sh)

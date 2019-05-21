@@ -1,0 +1,16 @@
+--------------------------------------------------
+2019-05-21 17:28:37 UTC
+Cannot assign requested address - bind(2) for "144.92.67.155" port 8888 [Errno::EADDRNOTAVAIL]
+--------------------------------------------------
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:270:in `initialize'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:270:in `new'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:270:in `add_tcp_listener'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:105:in `block in parse'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:88:in `each'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/binder.rb:88:in `parse'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/runner.rb:144:in `load_and_bind'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/single.rb:87:in `run'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/puma/launcher.rb:184:in `run'
+/var/lib/gems/2.5.0/gems/puma-3.11.4/lib/rack/handler/puma.rb:70:in `run'
+/var/lib/gems/2.5.0/gems/oxidized-web-0.13.1/lib/oxidized/web.rb:29:in `block in run'
+--------------------------------------------------

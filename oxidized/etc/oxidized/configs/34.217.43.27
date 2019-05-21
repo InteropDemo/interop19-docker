@@ -1,0 +1,233 @@
+! Cisco IOS XE Software, Version 16.09.02
+! 
+! Image: Software: X86_64_LINUX_IOSD-UNIVERSALK9-M, 16.9.2, RELEASE SOFTWARE (fc4)
+! Image: Compiled: Mon 05-Nov-18 19:26 by mcpre
+! Image: bootflash:packages.conf
+! Chassis type: CSR1000V
+! Memory: main 2180631K/3075K
+! Processor ID: 9TLGW33V09G
+! CPU: VXE
+! Memory: nvram 32768K
+! 
+! VTP: show vtp status
+! 
+! NAME: "Chassis", DESCR: "Cisco CSR1000V Chassis"
+! PID: CSR1000V          , VID: V00  , SN: 9TLGW33V09G
+! 
+! NAME: "module R0", DESCR: "Cisco CSR1000V Route Processor"
+! PID: CSR1000V          , VID: V00  , SN: JAB1303001C
+! 
+! NAME: "module F0", DESCR: "Cisco CSR1000V Embedded Services Processor"
+! PID: CSR1000V          , VID:      , SN:            
+! 
+! 
+!
+! Last configuration change at 19:31:56 UTC Tue May 21 2019 by ec2-user
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console virtual
+!
+hostname ip-172-31-38-220
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition GS
+ rd 100:100
+ !
+ address-family ipv4
+ exit-address-family
+!
+logging persistent size 1000000 filesize 8192 immediate
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2046765547
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2046765547
+ revocation-check none
+ rsakeypair TP-self-signed-2046765547
+!
+!
+crypto pki certificate chain TP-self-signed-2046765547
+ certificate self-signed 01
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32303436 37363535 3437301E 170D3139 30353138 32313136 
+  33305A17 0D333030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 30343637 
+  36353534 37308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100D834 921483A1 372CB8F4 785D2A33 49956EBD 455A2EB3 32AC13C2 
+  48F61356 91832EC2 69FCF134 7C865AFE 2C37FC1C 9D5FCF1B 9C257EDB 332E32EE 
+  970352F4 7DEC3030 3320E093 95D02CF2 3DF0FCAF 058FAF77 A55DF883 83AC57BC 
+  F88023B8 7A183E34 F0E6FD2F CCE105CF F326490A 08D65962 753F9F4F ABCF1A4F 
+  094804EE 94A2155E A4483D54 3886AD1E D7F71270 29C557A9 C2EF0894 45AFAF9D 
+  67AD8062 1DB9FD63 6941E9FF 919FB805 2798D19C 95EF4C9C 1A206AF6 00D392C8 
+  41888555 8A6DDE7E 68A3618B C92EAF6F 76D586A6 256A0A0D 3DA04FA9 11110069 
+  232C7C02 D4536440 987EDB42 1B88E684 A5C65F5F 221425B0 9351A2F2 ABF7EE14 
+  6D03B888 80E50203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 1497FC55 8945D12C 59225CDE 01E2BB7E 72E4973B 
+  A0301D06 03551D0E 04160414 97FC5589 45D12C59 225CDE01 E2BB7E72 E4973BA0 
+  300D0609 2A864886 F70D0101 05050003 82010100 9B390265 5226D0F1 A4CD4E0D 
+  AA83396C A97E70F4 BFB130DF 6187E6FF 10D67CF8 89F9BAFE B6CDED63 4486EC8E 
+  87AF13EF A1307422 7D0E817F 0B8F658E EB5ACFBC 0690A20A AECBCCA8 7A3A60BE 
+  8A7045C9 10C1B6AC 10B5ABA5 3CB79437 0D4153E4 75BB395E 81B55A31 B4071E96 
+  41FAB528 F0F6BA0A 57F66330 6CE7006D F06D3D6E F0052618 FD971E87 1ED44501 
+  8780801C F0CFF5EF 3B4FC068 A2D6A0D4 CAD24D48 571D5C56 430AC1F6 8B017E41 
+  52718A86 5A3A4205 89199A06 DA8EE205 CD938614 04F0FA7B D7F76FB7 B129628A 
+  FD9B3E51 B5904AD3 FA1DC16E 2A6519D8 0CCFE40D 663AECD3 9BA0BE10 C7896486 
+  6F719576 3ECD68CA FFA6863E 473455F3 DDDD962B
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9TLGW33V09G
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username ec2-user privilege 15 secret 5 $1$ZtXI$JzDvCd1sWllF/9fB7P7GH.
+username interop privilege 15 secret 5 $1$Ek.f$fWve0.9eFXeGiRs9diSfi1
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface VirtualPortGroup0
+ vrf forwarding GS
+ ip address 192.168.35.101 255.255.255.0
+ ip nat inside
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet1
+ ip address dhcp
+ ip nat outside
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description == WEJ Port 08:18==
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+iox
+ip nat inside source list GS_NAT_ACL interface GigabitEthernet1 vrf GS overload
+ip forward-protocol nd
+ip tcp window-size 8192
+ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 GigabitEthernet1 172.31.32.1
+ip route vrf GS 0.0.0.0 0.0.0.0 GigabitEthernet1 172.31.32.1 global
+!
+ip ssh rsa keypair-name ssh-key
+ip ssh version 2
+ip ssh pubkey-chain
+  username ec2-user
+   key-hash ssh-rsa 1E79495703D5E86476C25959DE873DEA ec2-user
+ip scp server enable
+!
+!
+ip access-list standard GS_NAT_ACL
+ permit 192.168.35.0 0.0.0.255
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+app-hosting appid guestshell
+ app-vnic gateway1 virtualportgroup 0 guest-interface 0
+  guest-ipaddress 192.168.35.102 netmask 255.255.255.0
+ app-default-gateway 192.168.35.101 guest-interface 0
+ name-server0 8.8.8.8
+end
+

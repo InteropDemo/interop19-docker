@@ -22,7 +22,7 @@
 ! 
 ! 
 !
-! Last configuration change at 19:31:56 UTC Tue May 21 2019 by ec2-user
+! Last configuration change at 19:52:47 UTC Tue May 21 2019 by interop
 !
 version 16.9
 service timestamps debug datetime msec
@@ -170,7 +170,6 @@ interface GigabitEthernet1
 !
 interface GigabitEthernet2
  no ip address
- shutdown
  negotiation auto
  no mop enabled
  no mop sysid

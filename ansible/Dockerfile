@@ -75,8 +75,8 @@ RUN ssh-keygen -q -t dsa -N '' -f /etc/ssh/ssh_host_dsa_key && \
 	cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys && \ 
 	for key in /etc/ssh/ssh_host_*_key.pub; do echo "localhost $(cat ${key})" >> /root/.ssh/known_hosts; done 
 RUN pip install coverage junit-xml 
-RUN git clone https://github.com/networktocode/ntc-ansible --recursive
+RUN git clone https://github.com/InteropDemo/interop19-ansible.git --recursive
 RUN pip install ntc-ansible
 ENV container=docker 
 CMD ["/usr/sbin/init"]
-WORKDIR /ntc-ansible
+WORKDIR /interop19-ansible/ntc-ansible
